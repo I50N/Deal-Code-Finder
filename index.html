@@ -1,1 +1,149 @@
-https://pastebin.com/raw/KJqUW5zD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best4U Deal Code Finder</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    input[type="text"] {
+      padding: 12px 40px 12px 16px;
+      width: 100%;
+      max-width: 500px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    svg {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      fill: #888;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      th {
+        position: sticky;
+        top: 0;
+        background-color: #444;
+      }
+      td {
+        border: none;
+        border-bottom: 1px solid #eee;
+      }
+      td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Best4U Deal Code Finder</h1>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Enter deal code like BCP03250001..." />
+    <svg viewBox="0 0 24 24"><path d="M21.71 20.29l-3.388-3.388a8 8 0 1 0-1.414 1.414l3.388 3.388a1 1 0 0 0 1.414-1.414zM10 16a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
+  </div>
+
+  <table id="dealsTable">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Term</th>
+        <th>Network</th>
+        <th>Package</th>
+        <th>Handset</th>
+        <th>Instalment</th>
+        <th>Airtime</th>
+        <th>Data</th>
+        <th>Minutes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Paste your full list of codes as table rows here -->
+      <tr>
+        <td>BCP03250001</td><td>24</td><td>C - Connect</td><td>C SaveR Combo 1GB +</td><td>BLACKVIEW A52 PRO</td><td>R479.00</td><td>R 0</td><td>1 GB</td><td>60</td>
+      </tr>
+      <tr>
+        <td>BCP03250002</td><td>24</td><td>C - Connect</td><td>C SaveR Combo 1GB +</td><td>ZTE NUBIA MUSIC POP ART</td><td>R479.00</td><td>R 0</td><td>1 GB</td><td>60</td>
+      </tr>
+      <!-- Keep pasting the rest of your rows here -->
+      <!-- You can paste them from Excel or your original text list -->
+    </tbody>
+  </table>
+
+  <script>
+    function filterTable() {
+      const input = document.getElementById("searchInput");
+      const filter = input.value.toUpperCase();
+      const table = document.getElementById("dealsTable");
+      const tr = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < tr.length; i++) {
+        const td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          const txtValue = td.textContent || td.innerText;
+          tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
+
