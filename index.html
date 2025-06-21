@@ -2,79 +2,117 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Deal Code Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best4U Deal Code Finder</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 30px;
+      font-family: "Segoe UI", Arial, sans-serif;
       background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
     }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    input[type="text"] {
+      padding: 12px 40px 12px 16px;
+      width: 100%;
+      max-width: 500px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    svg {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      fill: #888;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      background: #fff;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
     th, td {
-      border: 1px solid #ccc;
-      padding: 8px 12px;
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
       text-align: left;
     }
+
     th {
-      background: #ddd;
+      background-color: #333;
+      color: white;
     }
-    /* Style first column by default */
-    td:first-child {
-      color: purple;
-      font-weight: bold;
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
     }
-    /* Also a class for first column cells */
-    td.code-column {
-      color: purple;
-      font-weight: bold;
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      th {
+        position: sticky;
+        top: 0;
+        background-color: #444;
+      }
+      td {
+        border: none;
+        border-bottom: 1px solid #eee;
+      }
+      td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+      }
     }
   </style>
 </head>
 <body>
 
-<h1>Deal Code Finder</h1>
+  <h1>Best4U Deal Code Finder</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Term</th>
-      <th>Network</th>
-      <th>Package</th>
-      <th>Handset</th>
-      <th>Instalment</th>
-      <th>Airtime pm</th>
-      <th>Data pm</th>
-      <th>Minutes pm</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="code-column">BCP03250001</td>
-      <td>24</td>
-      <td>C - Connect</td>
-      <td>C SaveR Combo 1GB +</td>
-      <td>BLACKVIEW A52 PRO</td>
-      <td>R479.00</td>
-      <td>R 0</td>
-      <td>1 GB Anytime Data</td>
-      <td>60 Any-Net Minutes</td>
-    </tr>
-    <tr>
-      <td class="code-column">BCP03250002</td>
-      <td>24</td>
-      <td>C - Connect</td>
-      <td>C SaveR Combo 1GB +</td>
-      <td>ZTE NUBIA MUSIC POP ART</td>
-      <td>R479.00</td>
-      <td>R 0</td>
-      <td>1 GB Anytime Data</td>
-      <td>60 Any-Net Minutes</td>
-    </tr>
+  <div class="search-container">
+    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Enter deal code like BCP03250001..." />
+    <svg viewBox="0 0 24 24"><path d="M21.71 20.29l-3.388-3.388a8 8 0 1 0-1.414 1.414l3.388 3.388a1 1 0 0 0 1.414-1.414zM10 16a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
+  </div>
+
+  <table id="dealsTable">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Term</th>
+        <th>Network</th>
+        <th>Package</th>
+        <th>Handset</th>
+        <th>Instalment</th>
+        <th>Airtime</th>
+        <th>Data</th>
+        <th>Minutes</th>
+      </tr>
 <tr>
   <td>BCP03250003</td><td>24</td><td>C - Connect</td><td>C SaveR Combo 1GB +</td><td>ZTE NUBIA V60 DESIGN</td><td>R499</td><td>0</td><td>1 GB Anytime Data</td><td>60 Any-Net Minutes</td>
 </tr>
